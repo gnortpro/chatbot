@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import axios from "axios";
 import { ConversationalForm } from "conversational-form";
 import { fakeQuestion } from "./question";
 
@@ -23,7 +24,7 @@ export default function MyForm() {
         theme: "black",
         submitCallback: submitCallback,
         // loadExternalStyleSheet: false
-        robotImage: 'd',
+        robotImage: "d",
       },
       tags: formFields,
     });
@@ -38,11 +39,23 @@ export default function MyForm() {
   function submitCallback() {
     var formDataSerialized = cf.getFormData(true);
 
-    console.log("Formdata, obj:", formDataSerialized);
+    axios.get("https://blog.trongggg.com/wp-json/wp/v2/posts", {}).then(function (response) {
+      console.log(response.data);
+    });
 
-    cf.addRobotChatResponse(
-      "You are done. Check the dev console for form data output."
-    );
+    // axios
+    //   .post("https://eniw3jw5fiudl2o.m.pipedream.net", {
+    //     ...formDataSerialized,
+    //   })
+    //   .then(function (response) {
+    //     console.log("response", response);
+    //   });
+
+    // console.log("Formdata, obj:", formDataSerialized);
+
+    // cf.addRobotChatResponse(
+    //   "You are done. Check the dev console for form data output."
+    // );
   }
 
   return (

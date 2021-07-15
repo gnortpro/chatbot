@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.21.1",
     "conversational-form": "^1.0.1",
+    "firebase": "^8.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
